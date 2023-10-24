@@ -3,9 +3,9 @@ package pizzapp;
 public class PizzApp extends javax.swing.JFrame {
     
     double meretSzorzo = 1; //32 cm
-    int extra1 = 0;
-    int extra2 = 0;
-    int extra3 = 0;
+    int extra1 = 200;
+    int extra2 = 200;
+    int extra3 = 200;
     int extrak = extra1 + extra2 + extra3;
     int db = 1;
     int alapAr = -1;
@@ -20,9 +20,9 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        extra1 = 0;
-        extra2 = 0;
-        extra3 = 0;
+        extra1 = 200;
+        extra2 = 200;
+        extra3 = 2000;
         extrak = extra1 + extra2 + extra3;
         
         szamolasEsKiiras();
@@ -119,6 +119,11 @@ public class PizzApp extends javax.swing.JFrame {
         lblAr.setText("0");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        numDb.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numDbStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFizetendoLayout = new javax.swing.GroupLayout(pnlFizetendo);
         pnlFizetendo.setLayout(pnlFizetendoLayout);
@@ -153,6 +158,11 @@ public class PizzApp extends javax.swing.JFrame {
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbSajtActionPerformed(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
 
@@ -269,9 +279,9 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        extra1 = 0;
-        extra2 = 0;
-        extra3 = 0;
+        extra1 = 200;
+        extra2 = 200;
+        extra3 = 200;
         extrak = extra1 + extra2 + extra3;
         
         szamolasEsKiiras();
@@ -286,6 +296,15 @@ public class PizzApp extends javax.swing.JFrame {
         meretSzorzo = 1;
         szamolasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
+        db = (int) numDb.getValue();
+        szamolasEsKiiras();
+    }//GEN-LAST:event_numDbStateChanged
+
+    private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
+         vegsoAr += extra1;
+    }//GEN-LAST:event_chbSajtActionPerformed
     private void szamolasEsKiiras() {
         vegsoAr = alapAr * meretSzorzo * db + extrak;
         vegsoAr *=db;
