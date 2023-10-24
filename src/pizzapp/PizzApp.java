@@ -1,13 +1,15 @@
 package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
-
+    
+    double meretSzorzo = 1;
+    
     public PizzApp() {
         initComponents();
         
         int alapAr = 1750;
         
-        double meretSzorzo = 1;
+        meretSzorzo = 1;
         
         int db = 1;
         
@@ -67,10 +69,20 @@ public class PizzApp extends javax.swing.JFrame {
 
         buttonGroup1.add(rdbMeret25);
         rdbMeret25.setText("25 cm");
+        rdbMeret25.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret25ItemStateChanged(evt);
+            }
+        });
 
         buttonGroup1.add(rdbMeret32);
         rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
+        rdbMeret32.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret32ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMeretLayout = new javax.swing.GroupLayout(pnlMeret);
         pnlMeret.setLayout(pnlMeretLayout);
@@ -252,7 +264,7 @@ public class PizzApp extends javax.swing.JFrame {
         }
         
         
-        double meretSzorzo = 1;
+        
         
         int db = 1;
         
@@ -266,6 +278,14 @@ public class PizzApp extends javax.swing.JFrame {
                 
         lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+
+    private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
+        meretSzorzo = .75;
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
+
+    private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
+        meretSzorzo = 1;
+    }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
