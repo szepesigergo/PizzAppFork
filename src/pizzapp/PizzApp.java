@@ -2,23 +2,30 @@ package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
     
-    double meretSzorzo = 1;
+    double meretSzorzo = 1; //32 cm
+    int extra1 = 0;
+    int extra2 = 0;
+    int extra3 = 0;
+    int extrak = extra1 + extra2 + extra3;
+    int db = 1;
+    int alapAr = -1;
+    double vegsoAr;
     
     public PizzApp() {
         initComponents();
         
-        int alapAr = 1750;
+        alapAr = 1750;
         
         meretSzorzo = 1;
         
-        int db = 1;
+        db = 1;
         
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
+        extra1 = 0;
+        extra2 = 0;
+        extra3 = 0;
+        extrak = extra1 + extra2 + extra3;
         
-        double vegsoAr = alapAr * meretSzorzo * db + extrak;
+        vegsoAr = alapAr * meretSzorzo * db + extrak;
         vegsoAr *=db;
                 
         lblAr.setText(vegsoAr + "");
@@ -252,7 +259,7 @@ public class PizzApp extends javax.swing.JFrame {
         int pizzaIndex = cmdValaszthatoPizzak.getSelectedIndex();
         
         //választott pizza alapára:
-        int alapAr = -1; // -1 jelentése: nincs ára a pizzának 
+        alapAr = -1; // -1 jelentése: nincs ára a pizzának 
         if(pizzaIndex == 0){
                 alapAr = 1580;
         }else if(pizzaIndex == 1){
@@ -263,17 +270,14 @@ public class PizzApp extends javax.swing.JFrame {
                 alapAr = 2100;
         }
         
+        db = 1;
         
+        extra1 = 0;
+        extra2 = 0;
+        extra3 = 0;
+        extrak = extra1 + extra2 + extra3;
         
-        
-        int db = 1;
-        
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
-        
-        double vegsoAr = alapAr * meretSzorzo * db + extrak;
+        vegsoAr = alapAr * meretSzorzo * db + extrak;
         vegsoAr *=db;
                 
         lblAr.setText(vegsoAr + "");
@@ -281,6 +285,11 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meretSzorzo = .75;
+        
+        vegsoAr = alapAr * meretSzorzo * db + extrak;
+        vegsoAr *=db;
+                
+        lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
