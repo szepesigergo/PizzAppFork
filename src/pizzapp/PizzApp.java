@@ -4,6 +4,21 @@ public class PizzApp extends javax.swing.JFrame {
 
     public PizzApp() {
         initComponents();
+        int alapAr2 = 1750;
+        
+        double meretSzorzo = 1;
+        
+        int db = 1;
+        
+        int extra1 = 0;
+        int extra2 = 0;
+        int extra3 = 0;
+        int extrak = extra1 + extra2 + extra3;
+        
+        double vegsoAr = alapAr2 * meretSzorzo * db + extrak;
+        vegsoAr *=db;
+                
+        lblAr.setText(vegsoAr + "");
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +94,7 @@ public class PizzApp extends javax.swing.JFrame {
         lblFizFt.setText("Ft");
 
         lblAr.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAr.setText("1750");
+        lblAr.setText("0");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
 
